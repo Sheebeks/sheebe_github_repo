@@ -1,0 +1,6 @@
+@EndUserText.label: 'SERVICE DEFINITION FOR UNMANAGEDTRAVEL'
+define service ZMT_SH_SD_U_TRAVEL {
+  expose ZMT_SH_X_U_TRAVEL as Travel;
+  expose ZMT_SH_U_CUSTOMER as Customer;
+  expose ZMT_SH_U_AGENCY   as Agency;
+}

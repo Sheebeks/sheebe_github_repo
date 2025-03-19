@@ -1,0 +1,45 @@
+projection implementation in class zbp_mt_sh_travel_processor unique;
+strict ( 2 );
+use side effects;
+use draft;
+define behavior for ZMT_SH_TRAVEL_PROCESSOR alias travel
+{
+  use create ( augment, precheck ); //augment is not allowed on base defn, so in projection only
+ use update ( precheck );
+
+  use delete;
+
+  use action Edit;
+  use action Prepare;
+ use action Activate;
+ use action Discard;
+ use action Resume;
+
+  use action copyTravel;
+  use association _Booking { create; }
+  use association _Attachments { create; }
+}
+
+define behavior for ZMT_SH_BOOKING_PROCESSOR //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _Travel;
+  use association _BookingSupplement { create; }
+}
+
+define behavior for ZMT_SH_BOOKSUPPL_PROCESSOR alias BookingSuppl
+{
+  use update;
+  use delete;
+
+  use association _Travel;
+  use association _Booking;
+}
+define behavior for ZMT_sh_M_ATTACH_PROCESSOR alias Attachment
+{
+ use update;
+ use delete;
+ use association _Travel;
+}

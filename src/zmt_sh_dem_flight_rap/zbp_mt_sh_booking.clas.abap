@@ -1,0 +1,6 @@
+CLASS zbp_mt_sh_booking DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zmt_sh_travel.
+ENDCLASS.
+
+CLASS zbp_mt_sh_booking IMPLEMENTATION.
+
+ENDCLASS.
